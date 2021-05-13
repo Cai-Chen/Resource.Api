@@ -11,7 +11,7 @@ namespace Resource.Api.Config
             app.UseSwagger()
                 .UseSwaggerUI(c =>
                 {
-                    c.SwaggerEndpoint("/swagger/v1/swagger.json", "Customer Management API");
+                    c.SwaggerEndpoint("/swagger/v1/swagger.json", "Resource API");
                     c.RoutePrefix = string.Empty;
                 });
 
@@ -25,7 +25,7 @@ namespace Resource.Api.Config
                 c.SwaggerDoc("v1", new OpenApiInfo
                 {
                     Version = "v1",
-                    Title = "Customer Management API v1"
+                    Title = "Resource API"
                 });
             });
 
