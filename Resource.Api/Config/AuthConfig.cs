@@ -8,7 +8,6 @@ namespace Resource.Api.Config
     {
         public static IServiceCollection ConfigAuth(this IServiceCollection services, IConfiguration configuration)
         {
-            // accepts any access token issued by identity server
             services.AddAuthentication("Bearer")
                 .AddJwtBearer("Bearer", options =>
                 {
@@ -20,7 +19,6 @@ namespace Resource.Api.Config
                     };
                 });
 
-            // adds an authorization policy to make sure the token is for scope 'api1'
             services.AddAuthorization(options =>
             {
                 options.AddPolicy("ApiScope", policy =>
