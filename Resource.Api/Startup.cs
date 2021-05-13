@@ -18,6 +18,8 @@ namespace Resource.Api
 
         public void ConfigureServices(IServiceCollection services)
         {
+            services.ConfigCors();
+
             services.AddControllers();
 
             services.ConfigureSwagger()
@@ -32,18 +34,14 @@ namespace Resource.Api
                 app.UseDeveloperExceptionPage();
             }
 
+            app.UseCors("AllowOrigin");
+
             app.UseRouting();
 
             app.UseAuthentication();
             app.UseAuthorization();
 
-            app.EnableSwagger()
-               .UseCors(builder =>
-                    builder
-                        .AllowAnyOrigin()
-                        .AllowAnyMethod()
-                        .AllowAnyHeader()
-                );
+            app.EnableSwagger();
 
             app.UseEndpoints(endpoints =>
             {
